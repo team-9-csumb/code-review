@@ -1,3 +1,5 @@
+//Overall there is not much i can really suggest! you have provided really great code.! I made some small suggestions but nothing too big. Perhaps just need to do some enhancement in error handling and validation. What I mean by this is if user inputs are outside of expected ranges or formats that may break the program. Other than that< i believe this is really good. 
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -30,7 +32,7 @@ public class SocialMediaApp {
         User user = new User(username, displayName, state, Arrays.asList(friendsList));
         users.put(username, user);
       }
-      userReader.close();
+      userReader.close(); // though not necessary, add a finally block to close the reader
 
       BufferedReader postReader = new BufferedReader(new FileReader(postInfoFile));
       while ((line = postReader.readLine()) != null) {
@@ -41,9 +43,9 @@ public class SocialMediaApp {
         Post post = new Post(postId, userId, visibility);
         posts.put(postId, post);
       }
-      postReader.close();
+      postReader.close(); //should also perhaps add a finally block here
     } catch (IOException e) {
-      e.printStackTrace();
+      e.printStackTrace(); //for future references, a user friendly error handling could be added so that there are user friendlt messages are displayed 
     }
   }
 
